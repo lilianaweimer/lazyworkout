@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "header header header"
+    "options reps reps"
+    "options reps reps"
+    "options reps reps";
+}
+
+#options {
+  grid-area: options;
+}
+
+#header {
+  grid-area: header;
+  height: max-content;
+}
+
+#reps {
+  grid-area: reps;
+}

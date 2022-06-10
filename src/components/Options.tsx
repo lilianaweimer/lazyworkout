@@ -1,10 +1,12 @@
+import "./Options.scss";
+
 const Options = () => {
   return (
-    <section>
+    <section className="page_section" id="options">
       <h2>Options</h2>
       <form>
         <fieldset>
-          <legend>Body parts?? (idk what to call this yet)</legend>
+          <legend>Target Area(s)</legend>
           <>
             <input
               type="checkbox"
@@ -14,7 +16,9 @@ const Options = () => {
               className="options_checkbox"
               checked
             />
-            <label htmlFor="legs">Legs</label>
+            <label className="options_label" htmlFor="legs">
+              Legs
+            </label>
           </>
           <>
             <input
@@ -25,7 +29,9 @@ const Options = () => {
               className="options_checkbox"
               checked
             />
-            <label htmlFor="core">Core</label>
+            <label className="options_label" htmlFor="core">
+              Core
+            </label>
           </>
           <>
             <input
@@ -36,7 +42,9 @@ const Options = () => {
               className="options_checkbox"
               checked
             />
-            <label htmlFor="arms">Arms</label>
+            <label className="options_label" htmlFor="arms">
+              Arms
+            </label>
           </>
           <>
             <input
@@ -47,11 +55,13 @@ const Options = () => {
               className="options_checkbox"
               checked
             />
-            <label htmlFor="yoga">Yoga</label>
+            <label className="options_label" htmlFor="yoga">
+              Yoga
+            </label>
           </>
         </fieldset>
         <fieldset>
-          <legend>Tools?</legend>
+          <legend>Equipment</legend>
           <>
             <input
               type="checkbox"
@@ -60,7 +70,9 @@ const Options = () => {
               value=""
               className="options_checkbox"
             />
-            <label htmlFor="pilates_ring">Pilates Ring</label>
+            <label className="options_label" htmlFor="pilates_ring">
+              Pilates Ring
+            </label>
           </>
           <>
             <input
@@ -70,7 +82,9 @@ const Options = () => {
               value=""
               className="options_checkbox"
             />
-            <label htmlFor="weights">Weights</label>
+            <label className="options_label" htmlFor="weights">
+              Weights
+            </label>
           </>
         </fieldset>
         <fieldset>
@@ -86,9 +100,12 @@ const Options = () => {
               step="1"
               value="1"
             />
-            <label htmlFor="intensity">Intensity</label>
+            {/* <label className="options_label" htmlFor="intensity">
+              Intensity
+            </label> */}
           </>
         </fieldset>
+        <button>GO!</button>
       </form>
     </section>
   );

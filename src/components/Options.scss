@@ -1,0 +1,15 @@
+@import "../resources/variables.scss";
+
+#options {
+  font-family: $body-font;
+}
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+fieldset {
+  width: 50%;
+}

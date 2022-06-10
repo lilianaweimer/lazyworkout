@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './components/Header';
-import Options from './components/Options';
-import Reps from './components/Reps';
+import { useState } from "react";
+import "./App.scss";
+import Header from "./components/Header";
+import Options from "./components/Options";
+import Reps from "./components/Reps";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
@@ -13,7 +13,7 @@ function App() {
       <Options />
       <Reps />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
