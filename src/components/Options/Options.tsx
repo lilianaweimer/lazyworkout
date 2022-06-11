@@ -7,7 +7,7 @@ const Options = () => {
       <form>
         <fieldset>
           <legend>Target Area(s)</legend>
-          <>
+          <div className="checkbox_container">
             <input
               type="checkbox"
               id="legs"
@@ -19,8 +19,9 @@ const Options = () => {
             <label className="options_label" htmlFor="legs">
               Legs
             </label>
-          </>
-          <>
+          </div>
+          <br />
+          <div className="checkbox_container">
             <input
               type="checkbox"
               id="core"
@@ -32,8 +33,9 @@ const Options = () => {
             <label className="options_label" htmlFor="core">
               Core
             </label>
-          </>
-          <>
+          </div>
+          <br />
+          <div className="checkbox_container">
             <input
               type="checkbox"
               id="arms"
@@ -45,8 +47,9 @@ const Options = () => {
             <label className="options_label" htmlFor="arms">
               Arms
             </label>
-          </>
-          <>
+          </div>
+          <br />
+          <div className="checkbox_container">
             <input
               type="checkbox"
               id="yoga"
@@ -58,11 +61,11 @@ const Options = () => {
             <label className="options_label" htmlFor="yoga">
               Yoga
             </label>
-          </>
+          </div>
         </fieldset>
         <fieldset>
           <legend>Equipment</legend>
-          <>
+          <div className="checkbox_container">
             <input
               type="checkbox"
               id="pilates_ring"
@@ -73,8 +76,9 @@ const Options = () => {
             <label className="options_label" htmlFor="pilates_ring">
               Pilates Ring
             </label>
-          </>
-          <>
+          </div>
+          <br />
+          <div className="checkbox_container">
             <input
               type="checkbox"
               id="weights"
@@ -85,11 +89,11 @@ const Options = () => {
             <label className="options_label" htmlFor="weights">
               Weights
             </label>
-          </>
+          </div>
         </fieldset>
         <fieldset>
           <legend>Intensity</legend>
-          <>
+          <div className="checkbox_container">
             <input
               type="range"
               id="intensity"
@@ -103,7 +107,7 @@ const Options = () => {
             {/* <label className="options_label" htmlFor="intensity">
               Intensity
             </label> */}
-          </>
+          </div>
         </fieldset>
         <button>GO!</button>
       </form>
