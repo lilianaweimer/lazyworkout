@@ -49,6 +49,39 @@ function App() {
   console.log("settings", settings);
 
   const [currentExercises, updateCurrentExercises] = useState(data);
+  console.log("current exercises", currentExercises);
+
+  const generateExercises = (settings: Settings, exerciseData: Exercise[]) => {
+    let newExercises: Exercise[] = [];
+    // add if focus area is included in settings
+    settings.currentFocusAreas.forEach((area) => {
+      exerciseData.forEach((exercise) => {
+        if (
+          exercise.focusAreas.includes(area) &&
+          !newExercises.includes(exercise)
+        ) {
+          newExercises.push(exercise);
+        }
+      });
+    });
+    // filter by equipment
+    if (!settings.currentEquipment.includes("pilates ring")) {
+      newExercises = newExercises.filter(
+        (exercise) => !exercise.usesPilatesRing
+      );
+    }
+    if (!settings.currentEquipment.includes("weights")) {
+      newExercises = newExercises.filter((exercise) => !exercise.usesWeights);
+    }
+    return newExercises;
+  };
+
+  useEffect(() => {
+    let newExercises = generateExercises(settings, exerciseData);
+    updateCurrentExercises(
+      (currentExercises) => (currentExercises = newExercises)
+    );
+  }, []);
 
   const focusAreas: FocusAreas[] = [
     "arms",
