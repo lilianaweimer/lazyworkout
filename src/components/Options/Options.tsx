@@ -1,67 +1,61 @@
+import { useEffect, useState } from "react";
+
+import FocusAreaCheckbox from "./focusAreaCheckbox";
+
+import { Settings } from "../../App";
+import { FocusAreas } from "../../resources/data";
+
 import "./Options.scss";
 
-const Options = () => {
+interface OptionsProps {
+  currentSettings: Settings;
+  updateSettings: React.Dispatch<React.SetStateAction<Settings>>;
+  focusAreas: FocusAreas[];
+}
+
+const Options: React.FC<OptionsProps> = ({
+  currentSettings,
+  updateSettings,
+  focusAreas,
+}) => {
+  const handleCheckboxClick = (
+    event: EventTarget,
+    area: string,
+    checked: boolean
+  ) => {
+    if (checked) {
+      let focusAreas = currentSettings.currentFocusAreas.filter(
+        (item) => item !== area
+      );
+      updateSettings((settings) => ({
+        ...settings,
+        currentFocusAreas: focusAreas,
+      }));
+    } else {
+      updateSettings((settings) => ({
+        ...settings,
+        currentFocusAreas: [...settings.currentFocusAreas, area as FocusAreas],
+      }));
+    }
+  };
+
+  const focusAreaInputs = focusAreas.map((area) => {
+    const isSelected = currentSettings.currentFocusAreas.includes(area);
+    return (
+      <FocusAreaCheckbox
+        area={area}
+        checked={isSelected}
+        handleCheckboxClick={handleCheckboxClick}
+      />
+    );
+  });
   return (
     <section className="page_section" id="options">
       <h2>Options</h2>
       <form>
-        <fieldset>
+        <fieldset className="focus_areas_form">
           <legend>Target Area(s)</legend>
-          <div className="checkbox_container">
-            <input
-              type="checkbox"
-              id="legs"
-              name="legs"
-              value="checked"
-              className="options_checkbox"
-              checked
-            />
-            <label className="options_label" htmlFor="legs">
-              Legs
-            </label>
-          </div>
-          <br />
-          <div className="checkbox_container">
-            <input
-              type="checkbox"
-              id="core"
-              name="core"
-              value="checked"
-              className="options_checkbox"
-              checked
-            />
-            <label className="options_label" htmlFor="core">
-              Core
-            </label>
-          </div>
-          <br />
-          <div className="checkbox_container">
-            <input
-              type="checkbox"
-              id="arms"
-              name="arms"
-              value="checked"
-              className="options_checkbox"
-              checked
-            />
-            <label className="options_label" htmlFor="arms">
-              Arms
-            </label>
-          </div>
-          <br />
-          <div className="checkbox_container">
-            <input
-              type="checkbox"
-              id="yoga"
-              name="yoga"
-              value="checked"
-              className="options_checkbox"
-              checked
-            />
-            <label className="options_label" htmlFor="yoga">
-              Yoga
-            </label>
-          </div>
+          {focusAreaInputs}
         </fieldset>
         <fieldset>
           <legend>Equipment</legend>

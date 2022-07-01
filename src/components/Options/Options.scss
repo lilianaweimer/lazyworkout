@@ -47,7 +47,6 @@ fieldset {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  align-content: flex-start;
 }
 
 button {
@@ -66,4 +65,9 @@ button {
   &:hover {
     background-color: $pale-blue;
   }
+}
+
+.focus_areas_form {
+  max-height: 250px;
+  flex-wrap: wrap;
 }

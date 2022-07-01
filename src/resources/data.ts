@@ -1,4 +1,4 @@
-type FocusAreas =
+export type FocusAreas =
   | "arms"
   | "legs"
   | "core"
@@ -20,7 +20,7 @@ type FocusAreas =
 // 'focus areas' is not exact -- some of these target back or other areas
 // but i am going to lump them together into these categories because it's easier.
 // in future iterations i may expand this and make it more 'correct'
-interface Exercise {
+export interface Exercise {
   id: number;
   name: string;
   focusAreas: FocusAreas[];
