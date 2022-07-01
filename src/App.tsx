@@ -99,9 +99,9 @@ function App() {
     );
   }, []);
 
-  const submitForm = (e: Event) => {
+  const submitForm = (e: Event, formSettings: Settings) => {
     e.preventDefault();
-    let newExercises = generateExercises(settings, exerciseData);
+    let newExercises = generateExercises(formSettings, exerciseData);
     updateCurrentExercises(
       (currentExercises) => (currentExercises = newExercises)
     );

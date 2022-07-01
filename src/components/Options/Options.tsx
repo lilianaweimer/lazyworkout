@@ -21,17 +21,19 @@ const Options: React.FC<OptionsProps> = ({
   focusAreas,
   submitForm,
 }) => {
+  const [formSettings, updateFormSettings] = useState(currentSettings);
+
   const handleFocusAreaCheckboxClick = (area: string, checked: boolean) => {
     if (checked) {
-      let focusAreas = currentSettings.currentFocusAreas.filter(
+      let focusAreas = formSettings.currentFocusAreas.filter(
         (item) => item !== area
       );
-      updateSettings((settings) => ({
+      updateFormSettings((settings) => ({
         ...settings,
         currentFocusAreas: focusAreas,
       }));
     } else {
-      updateSettings((settings) => ({
+      updateFormSettings((settings) => ({
         ...settings,
         currentFocusAreas: [...settings.currentFocusAreas, area as FocusAreas],
       }));
@@ -40,15 +42,15 @@ const Options: React.FC<OptionsProps> = ({
 
   const handleEquipmentCheckboxClick = (equip: string, checked: boolean) => {
     if (checked) {
-      let newEquipment = currentSettings.currentEquipment.filter(
+      let newEquipment = formSettings.currentEquipment.filter(
         (item) => item !== equip
       );
-      updateSettings((settings) => ({
+      updateFormSettings((settings) => ({
         ...settings,
         currentEquipment: newEquipment,
       }));
     } else {
-      updateSettings((settings) => ({
+      updateFormSettings((settings) => ({
         ...settings,
         currentEquipment: [...settings.currentEquipment, equip as Equipment],
       }));
@@ -56,14 +58,14 @@ const Options: React.FC<OptionsProps> = ({
   };
 
   const handleIntensitySliderChange = (target: string) => {
-    updateSettings((settings) => ({
+    updateFormSettings((settings) => ({
       ...settings,
       currentIntensity: target as Intensity,
     }));
   };
 
   const focusAreaInputs = focusAreas.map((area) => {
-    const isSelected = currentSettings.currentFocusAreas.includes(area);
+    const isSelected = formSettings.currentFocusAreas.includes(area);
     return (
       <FocusAreaCheckbox
         area={area}
@@ -75,7 +77,7 @@ const Options: React.FC<OptionsProps> = ({
 
   const equipment: Equipment[] = ["pilates ring", "weights"];
   const equipmentInputs = equipment.map((equip) => {
-    const isSelected = currentSettings.currentEquipment.includes(equip);
+    const isSelected = formSettings.currentEquipment.includes(equip);
     return (
       <EquipmentCheckbox
         equip={equip}
@@ -107,7 +109,7 @@ const Options: React.FC<OptionsProps> = ({
               min="1"
               max="3"
               step="1"
-              value={currentSettings.currentIntensity}
+              value={formSettings.currentIntensity}
               onChange={(e) =>
                 handleIntensitySliderChange(
                   (e.target as HTMLInputElement).value
@@ -116,7 +118,7 @@ const Options: React.FC<OptionsProps> = ({
             />
           </div>
         </fieldset>
-        <button onClick={(e) => submitForm(e)}>GO!</button>
+        <button onClick={(e) => submitForm(e, formSettings)}>GO!</button>
       </form>
     </section>
   );
