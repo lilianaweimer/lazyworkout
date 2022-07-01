@@ -19,7 +19,7 @@ const EquipmentCheckbox: React.FC<CheckboxProps> = ({
         name={equip}
         checked={checked}
         className="options_checkbox"
-        onChange={(e) => handleEquipmentCheckboxClick(equip, checked)}
+        onChange={() => handleEquipmentCheckboxClick(equip, checked)}
       />
       <label className="options_label" htmlFor={equip}>
         {equip[0].toUpperCase() + equip.substring(1)}

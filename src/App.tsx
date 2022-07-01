@@ -9,12 +9,12 @@ import data from "./resources/data";
 import { Exercise, FocusAreas } from "./resources/data";
 
 export type Equipment = "pilates ring" | "weights";
-export type Difficulty = "easy" | "medium" | "hard";
+export type Intensity = "1" | "2" | "3";
 
 export interface Settings {
   currentFocusAreas: FocusAreas[];
   currentEquipment: Equipment[];
-  currentDifficulty: Difficulty;
+  currentIntensity: Intensity;
 }
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
       "back",
     ],
     currentEquipment: [],
-    currentDifficulty: "easy",
+    currentIntensity: "1",
   };
 
   const [exerciseData, setExerciseData] = useState(data);

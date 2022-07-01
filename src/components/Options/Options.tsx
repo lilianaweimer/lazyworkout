@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-import FocusAreaCheckbox from "./focusAreaCheckbox";
+import FocusAreaCheckbox from "./FocusAreaCheckbox";
 import EquipmentCheckbox from "./EquipmentCheckbox";
 
-import { Equipment, Settings } from "../../App";
+import { Equipment, Intensity, Settings } from "../../App";
 import { FocusAreas } from "../../resources/data";
 
 import "./Options.scss";
@@ -53,6 +53,13 @@ const Options: React.FC<OptionsProps> = ({
     }
   };
 
+  const handleIntensitySliderChange = (target: string) => {
+    updateSettings((settings) => ({
+      ...settings,
+      currentIntensity: target as Intensity,
+    }));
+  };
+
   const focusAreaInputs = focusAreas.map((area) => {
     const isSelected = currentSettings.currentFocusAreas.includes(area);
     return (
@@ -98,7 +105,12 @@ const Options: React.FC<OptionsProps> = ({
               min="1"
               max="3"
               step="1"
-              value="1"
+              value={currentSettings.currentIntensity}
+              onChange={(e) =>
+                handleIntensitySliderChange(
+                  (e.target as HTMLInputElement).value
+                )
+              }
             />
           </div>
         </fieldset>

@@ -19,7 +19,7 @@ const FocusAreaCheckbox: React.FC<CheckboxProps> = ({
         name={area}
         checked={checked}
         className="options_checkbox"
-        onChange={(e) => handleFocusAreaCheckboxClick(area, checked)}
+        onChange={() => handleFocusAreaCheckboxClick(area, checked)}
       />
       <label className="options_label" htmlFor={area}>
         {area[0].toUpperCase() + area.substring(1)}
