@@ -12,12 +12,14 @@ interface OptionsProps {
   currentSettings: Settings;
   updateSettings: React.Dispatch<React.SetStateAction<Settings>>;
   focusAreas: FocusAreas[];
+  submitForm: () => {};
 }
 
 const Options: React.FC<OptionsProps> = ({
   currentSettings,
   updateSettings,
   focusAreas,
+  submitForm,
 }) => {
   const handleFocusAreaCheckboxClick = (area: string, checked: boolean) => {
     if (checked) {
@@ -114,7 +116,7 @@ const Options: React.FC<OptionsProps> = ({
             />
           </div>
         </fieldset>
-        <button>GO!</button>
+        <button onClick={(e) => submitForm(e)}>GO!</button>
       </form>
     </section>
   );

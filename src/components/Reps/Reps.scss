@@ -17,7 +17,6 @@
   grid-auto-rows: 1fr;
   grid-auto-columns: 1fr;
   grid-template-columns: 1fr 1fr 1fr;
-  // grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas: ". . .";
 }
@@ -31,4 +30,11 @@
   margin-bottom: 0.5em;
   display: flex;
   flex-direction: column;
+}
+
+.rep_img {
+  width: 25px;
+  height: auto;
+  margin: 0 auto;
+  padding-bottom: 3px;
 }
