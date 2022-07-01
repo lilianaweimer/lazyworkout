@@ -24,12 +24,14 @@
 .rep_item {
   margin: 0 auto;
   width: 80%;
+  min-height: 175px;
   background-color: $light-blue;
   border: 2px solid $medlight-blue;
   border-radius: 5px;
   margin-bottom: 0.5em;
   display: flex;
   flex-direction: column;
+  padding: 3px;
 }
 
 .rep_img {
@@ -37,4 +39,15 @@
   height: auto;
   margin: 0 auto;
   padding-bottom: 3px;
+}
+
+.rep_num {
+  font-size: 1.25em;
+}
+
+.rep_inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }
