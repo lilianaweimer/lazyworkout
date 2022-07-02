@@ -1,0 +1,53 @@
+@import "../../resources/variables.scss";
+
+#reps {
+  font-family: $body-font;
+  background-color: $meddark-blue;
+  width: 80%;
+  height: min-content;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 20px;
+  border: 3px solid $yellow;
+  color: $dark-blue;
+}
+
+.reps_container {
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . .";
+}
+
+.rep_item {
+  margin: 0 auto;
+  width: 80%;
+  min-height: 175px;
+  background-color: $light-blue;
+  border: 2px solid $medlight-blue;
+  border-radius: 5px;
+  margin-bottom: 0.5em;
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+}
+
+.rep_img {
+  width: 25px;
+  height: auto;
+  margin: 0 auto;
+  padding-bottom: 3px;
+}
+
+.rep_num {
+  font-size: 1.25em;
+}
+
+.rep_inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
