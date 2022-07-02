@@ -12,7 +12,10 @@ interface OptionsProps {
   currentSettings: Settings;
   updateSettings: React.Dispatch<React.SetStateAction<Settings>>;
   focusAreas: FocusAreas[];
-  submitForm: () => {};
+  submitForm(
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    formSettings: Settings
+  ): void;
 }
 
 const Options: React.FC<OptionsProps> = ({
@@ -22,6 +25,7 @@ const Options: React.FC<OptionsProps> = ({
   submitForm,
 }) => {
   const [formSettings, updateFormSettings] = useState(currentSettings);
+  console.log("form intensity", formSettings.currentIntensity);
 
   const handleFocusAreaCheckboxClick = (area: string, checked: boolean) => {
     if (checked) {
@@ -63,6 +67,17 @@ const Options: React.FC<OptionsProps> = ({
       currentIntensity: target as Intensity,
     }));
   };
+
+  // const submitForm = (e: Event, formSettings: Settings) => {
+  //   e.preventDefault();
+  //   console.log("form", formSettings);
+  //   console.log("current", currentSettings);
+  //   updateSettings((currentSettings) => {
+  //     currentSettings.currentFocusAreas = formSettings.currentFocusAreas;
+  //     currentSettings.currentEquipment = formSettings.currentEquipment;
+  //     currentSettings.currentIntensity = formSettings.currentIntensity;
+  //   });
+  // };
 
   const focusAreaInputs = focusAreas.map((area) => {
     const isSelected = formSettings.currentFocusAreas.includes(area);
@@ -118,7 +133,9 @@ const Options: React.FC<OptionsProps> = ({
             />
           </div>
         </fieldset>
-        <button onClick={(e) => submitForm(e, formSettings)}>GO!</button>
+        <button type="button" onClick={(e) => submitForm(e, formSettings)}>
+          GO!
+        </button>
       </form>
     </section>
   );

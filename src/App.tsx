@@ -99,9 +99,13 @@ function App() {
     );
   }, []);
 
-  const submitForm = (e: Event, formSettings: Settings) => {
+  const submitForm = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    formSettings: Settings
+  ) => {
     e.preventDefault();
     let newExercises = generateExercises(formSettings, exerciseData);
+    updateSettings((settings) => (settings = formSettings));
     updateCurrentExercises(
       (currentExercises) => (currentExercises = newExercises)
     );
